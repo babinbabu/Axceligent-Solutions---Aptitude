@@ -1,0 +1,37 @@
+3-John the Robot
+Our technical team made a new robot. You are given a task to write a program to let the robot learn and show the new skills. Below is the code that your boss gave you and you are going to implement it. 
+
+Ans
+
+        public class Dancing
+        {
+
+        }
+
+        public class Cooking
+        {
+
+        }
+
+        public class Humanoid
+        {
+            public static string Message { get; set; }
+
+            public Humanoid()
+            {
+                Message = "no skill is defined";
+            }
+            public Humanoid(Dancing obj)
+            {
+                Message = "dancing";
+            }
+
+            public Humanoid(Cooking obj)
+            {
+                Message = "cooking";
+            }
+            public string ShowSkill()
+            {
+                return Message;
+            }
+        }

@@ -1,0 +1,33 @@
+4-Alexa Settings
+
+Your team is creating a home management system for Alexa, they want to be able to configure Alexa settings through the code. your boss passes you this code and ask you to complete it. 
+
+Ans
+
+        public class Alexa
+        {
+            public string GreetingMessage { get; set; }
+            public string OwnerName { get; set; }
+
+            private Action<Alexa> ActionAlexa = null;
+
+            public Alexa()
+            {
+            }
+
+            public string Talk()
+            {
+                if (ActionAlexa != null)
+                {
+                    ActionAlexa.Invoke(this);
+                    return GreetingMessage.Replace("{OwnerName}", this.OwnerName);
+                }
+                return "hello, i am Alexa";
+            }
+
+            public void Configure(Action<Alexa> actionAlexa)
+            {
+                ActionAlexa = actionAlexa;
+            }
+
+        }

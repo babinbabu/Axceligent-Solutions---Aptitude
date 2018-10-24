@@ -1,0 +1,20 @@
+2-User Class
+implement the User class
+please note that you are not allowed to change below code and you are not allowed to use any database or persistent data storage. The data is good to be available if the program is running.
+
+Ans
+
+   public class User
+    {
+        public static int UsersCount { get; set; }
+
+        public void Add(string userName)
+        {
+            Console.WriteLine(userName);
+        }
+        public int GetUsersCount()
+        {
+            return ++UsersCount;
+        }
+    }
+

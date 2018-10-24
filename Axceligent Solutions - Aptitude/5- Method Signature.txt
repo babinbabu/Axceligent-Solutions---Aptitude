@@ -1,0 +1,6 @@
+﻿5- Method Signature
+your colleague wrote a function to calculate something, unfortunately he didn’t choose a good name for it, so you don’t know what it does. But from the way that he used it, can you guess how does it look like?
+
+Ans
+
+var (averageSalary, numberOfEmployee) = await FindAverangeCompanySalaryNetAmount(0L, 10L, 0L == 10L);

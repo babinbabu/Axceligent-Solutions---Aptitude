@@ -1,0 +1,56 @@
+1-Sum of Biggest Neighbor
+your program is receiving an array of integer
+each element of array is repeated maximum M times
+and you want to find the biggest combination of two neighbor element of the array when the element of array is repeated at least M-1 times.
+Write the program in most efficient way that you can. Can you tell what is your solution O(n) size?
+
+Ans
+	public int Challenge(int[] input)
+        {
+	    //Finding the number repleated count
+            var dict = new Dictionary<int, int>();
+            
+            foreach (var value in input)
+            {
+                if (dict.ContainsKey(value))
+                    dict[value]++;
+                else
+                    dict[value] = 1;
+            }
+            int M = dict.Max(x => x.Value); // Get the maximum repleated number count(M)
+            --M; // (M-1)
+			
+			// Saving the repeated numbers to an array
+            List<int> repeatedList = new List<int>();
+            foreach (var currentValue in dict)
+            {
+
+                if (currentValue.Value >= M)
+                {
+                    for (int i = 0; i < currentValue.Value; ++i)
+                    {
+                        repeatedList.Add(currentValue.Key);
+                    }
+                }
+            }
+
+            int[] repeatedArrayList = repeatedList.ToArray();//Converting the List to Array
+
+            //Here finding the Sum of Biggest Neighbor
+            int consecutiveSum = 0;
+            for (int i = 0; i < repeatedArrayList.Length; ++i)
+            {
+                for (int j = i + 1; j <= i + 1; ++j)
+                {
+                    if (j >= repeatedArrayList.Length)
+                    {
+                        break;
+                    }
+                    if (consecutiveSum < (repeatedArrayList[i] + repeatedArrayList[j]))
+                    {
+                        consecutiveSum = repeatedArrayList[i] + repeatedArrayList[j];
+                    }
+                }
+            }
+            return consecutiveSum;
+        }
